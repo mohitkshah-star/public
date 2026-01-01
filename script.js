@@ -138,7 +138,7 @@ function showNewYearMessage() {
   finalName.textContent = name;
 
   newYearMessage.classList.remove("hidden");
- newYearSound.play();
+  newYearSound.play();
   startFireworks();
 
   setTimeout(() => {

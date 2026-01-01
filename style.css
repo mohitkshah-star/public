@@ -170,7 +170,11 @@ body {
 
 /* ================= GIFT BUTTON ================= */
 .gift-btn {
-  margin-top: 30px;
+  position: fixed;       /* position fixed to center in viewport */
+  top: 50%;              /* vertically center */
+  left: 50%;             /* horizontally center */
+  transform: translate(-50%, -50%); /* exact center */
+  margin: 0;             /* remove default margins */
   padding: 15px 30px;
   font-size: 20px;
   border: none;
@@ -178,10 +182,10 @@ body {
   cursor: pointer;
   background: linear-gradient(45deg, #ff0080, #ffcc00);
   color: #fff;
-  animation: pulseGift 1.5s infinite;
-  pointer-events: auto;
-  z-index: 10;
+  z-index: 10;           /* above other elements */
+  animation: pulse 1.5s infinite;
 }
+
 
 @keyframes pulseGift {
   0% { transform: scale(1); }

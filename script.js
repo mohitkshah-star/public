@@ -1,6 +1,7 @@
 // ================= CANVAS SETUP =================
 const canvas = document.getElementById("bgCanvas");
 const ctx = canvas.getContext("2d");
+const newYearSound = document.getElementById("newYearSound");
 
 function resize() {
   canvas.width = window.innerWidth;
@@ -137,6 +138,7 @@ function showNewYearMessage() {
   finalName.textContent = name;
 
   newYearMessage.classList.remove("hidden");
+ newYearSound.play();
   startFireworks();
 
   setTimeout(() => {

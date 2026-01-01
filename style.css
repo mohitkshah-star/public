@@ -1,0 +1,239 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  background: black;
+  font-family: Arial, sans-serif;
+}
+
+/* ================= CANVAS ================= */
+#bgCanvas {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* ================= CARD ================= */
+.card-wrapper {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+}
+
+/* Flip Card */
+.flip-card {
+  width: 320px;
+  height: 220px;
+  perspective: 1200px;
+  animation: float 4s ease-in-out infinite;
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+/* Card Faces */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: rgba(0, 0, 0, 0.75);
+  border-radius: 18px;
+  box-shadow: 0 0 35px gold;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.flip-card-front h2 {
+  margin-bottom: 10px;
+}
+
+.flip-card-front input {
+  width: 90%;
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  margin: 10px 0;
+  font-size: 16px;
+}
+
+.flip-card-front button {
+  padding: 10px 25px;
+  border: none;
+  background: gold;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.flip-card-front button:hover {
+  transform: scale(1.05);
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+}
+
+/* Floating animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+/* Fly away animation */
+.fly-away {
+  animation: flyOut 1.2s ease forwards;
+}
+
+@keyframes flyOut {
+  0% { transform: translateY(0) scale(1); opacity: 1; }
+  100% { transform: translateY(-300px) scale(0.6); opacity: 0; }
+}
+
+/* ================= COUNTDOWN ================= */
+#countdown {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 120px;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 0 0 40px gold;
+  animation: pulse 1s infinite;
+  z-index: 6;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.15); opacity: 0.7; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* ================= NEW YEAR MESSAGE ================= */
+#newYearMessage {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  z-index: 6;
+  pointer-events: none;
+}
+
+#newYearMessage h1 {
+  font-size: 64px;
+  color: gold;
+  text-shadow: 0 0 40px gold;
+  animation: zoomGlow 1.5s ease forwards;
+}
+
+#newYearMessage h2 {
+  font-size: 36px;
+  margin-top: 15px;
+  color: white;
+  text-shadow: 0 0 20px white;
+  animation: fadeUp 1.5s ease forwards;
+}
+
+@keyframes zoomGlow {
+  0% { transform: scale(0.4); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes fadeUp {
+  0% { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+/* ================= GIFT BUTTON ================= */
+.gift-btn {
+  margin-top: 30px;
+  padding: 15px 30px;
+  font-size: 20px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  background: linear-gradient(45deg, #ff0080, #ffcc00);
+  color: #fff;
+  animation: pulseGift 1.5s infinite;
+  pointer-events: auto;
+  z-index: 10;
+}
+
+@keyframes pulseGift {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+/* ================= GIFT BOX ================= */
+.gift-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 60px;
+  cursor: pointer;
+  text-align: center;
+  background: #fff;
+  padding: 20px 30px;
+  border-radius: 20px;
+  box-shadow: 0 0 30px rgba(255,255,255,0.6);
+  transition: transform 0.4s ease, top 0.4s ease, left 0.4s ease;
+  z-index: 10;
+  pointer-events: auto;
+}
+
+.gift-box span {
+  display: block;
+  font-size: 16px;
+  margin-top: 10px;
+  color: #333;
+}
+
+/* ================= GIFT SURPRISE MESSAGE ================= */
+#giftMessage {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  font-size: 28px;
+  color: #ff0080;
+  text-align: center;
+  z-index: 12;
+  animation: giftPop 0.8s forwards;
+}
+
+@keyframes giftPop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+/* Gift box open animation */
+.gift-box.open {
+  transform: translate(-50%, -50%) scale(1.2) rotateY(20deg);
+}

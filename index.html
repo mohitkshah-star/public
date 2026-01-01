@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>New Year Surprise</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Background Animation -->
+  <canvas id="bgCanvas"></canvas>
+
+  <!-- Countdown -->
+  <div id="countdown" class="hidden">
+    <span id="countNumber">5</span>
+  </div>
+
+  <!-- New Year Message -->
+  <div id="newYearMessage" class="hidden">
+    <h1>🎉 HAPPY NEW YEAR 🎉</h1>
+    <h2 id="finalName"></h2>
+  </div>
+
+  <!-- Gift Button -->
+  <button id="giftBtn" class="hidden gift-btn">
+    🎁 Collect Your Gift
+  </button>
+
+  <!-- Gift Box -->
+  <div id="giftBox" class="hidden gift-box">
+    🎁
+    <span>Click to open</span>
+  </div>
+
+  <!-- Gift Surprise Message -->
+  <div id="giftMessage" class="hidden">
+    🎉 Surprise! Wishing you an amazing New Year! 🎆
+  </div>
+
+  <!-- Floating Name Card -->
+  <div class="card-wrapper">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        
+        <!-- Front -->
+        <div class="flip-card-front">
+          <h2>🎆 Welcome 🎆</h2>
+          <p>Enter your name</p>
+          <input type="text" id="userName" placeholder="Your name">
+          <button id="continueBtn">Continue</button>
+        </div>
+
+        <!-- Back -->
+        <div class="flip-card-back">
+          <h2>🎉 Get Ready 🎉</h2>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

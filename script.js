@@ -82,7 +82,6 @@ function animate() {
 
   requestAnimationFrame(animate);
 }
-
 animate();
 
 // ================= UI ELEMENTS =================
@@ -95,6 +94,7 @@ const finalName = document.getElementById("finalName");
 const giftBtn = document.getElementById("giftBtn");
 const giftBox = document.getElementById("giftBox");
 const giftMessage = document.getElementById("giftMessage");
+const finalCard = document.getElementById("finalCard");
 
 // ================= CONTINUE BUTTON =================
 continueBtn.addEventListener("click", () => {
@@ -148,7 +148,7 @@ function showNewYearMessage() {
 }
 
 // ================= GIFT BUTTON =================
-if (giftBtn && giftBox && giftMessage) {
+if (giftBtn && giftBox && giftMessage && finalCard) {
   giftBtn.addEventListener("click", () => {
     giftBtn.classList.add("hidden");
     giftBox.classList.remove("hidden");
@@ -157,11 +157,19 @@ if (giftBtn && giftBox && giftMessage) {
   giftBox.addEventListener("mouseenter", moveGiftBox);
 
   giftBox.addEventListener("click", () => {
+    // Stop moving
     giftBox.removeEventListener("mouseenter", moveGiftBox);
+
+    // Animate gift box open
     giftBox.classList.add("open");
 
+    // After short delay
     setTimeout(() => {
-      giftMessage.classList.remove("hidden");
+      giftBox.classList.add("hidden");
+      giftMessage.classList.add("hidden");
+
+      // Show final animated New Year card
+      finalCard.classList.remove("hidden");
     }, 600);
   });
 }

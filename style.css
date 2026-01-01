@@ -237,3 +237,42 @@ body {
 .gift-box.open {
   transform: translate(-50%, -50%) scale(1.2) rotateY(20deg);
 }
+
+.final-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  background: linear-gradient(135deg, #ff0080, #ffcc00, #00ffcc);
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 0 40px gold;
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  z-index: 15;
+  animation: cardPop 0.8s forwards;
+}
+
+.final-card h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-shadow: 0 0 30px white;
+}
+
+.final-card ul {
+  list-style: none;
+  padding: 0;
+}
+
+.final-card ul li {
+  margin: 8px 0;
+  font-weight: bold;
+}
+
+/* Pop animation */
+@keyframes cardPop {
+  0% { transform: translate(-50%, -50%) scale(0); opacity: 0; }
+  50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}

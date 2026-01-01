@@ -146,7 +146,7 @@ function showNewYearMessage() {
 
     // Hide New Year message when gift button appears
     newYearMessage.classList.add("hidden");
-  }, 1500);
+  }, 5000);
 }
 
 // ================= GIFT BUTTON =================
